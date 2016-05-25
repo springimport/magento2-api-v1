@@ -1,0 +1,21 @@
+{
+    "name": "springimport/magento2-api-v1",
+    "description": "Base Rest API v1",
+    "type": "library",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mykhailo",
+            "email": "mykhailo@springimport.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "springimport\\": ""
+        }
+    }
+}
