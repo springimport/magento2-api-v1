@@ -6,7 +6,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mykhailo",
+            "name": "Mykhailo Shatilov",
             "email": "mykhailo@springimport.com"
         }
     ],
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "springimport\\": ""
+            "springimport\\magento2apiv1\\": ""
         }
     }
 }

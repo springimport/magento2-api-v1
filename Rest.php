@@ -5,7 +5,7 @@ namespace springimport\magento2apiv1;
 class Rest
 {
 
-    //$modelsPath = 'springimport\magento2apiv1\models\\';
+    public $modelsPath = 'springimport\magento2apiv1\models\\';
 
     public function model($name)
     {
