@@ -2,7 +2,7 @@
     "name": "springimport/magento2-api-v1",
     "description": "Base Rest API v1",
     "type": "library",
-    "keywords": ["extension"],
+    "keywords": ["magento 2", "extension", "api", "rest"],
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "springimport\\magento2apiv1\\": ""
+            "springimport\\magento2apiv1\\": "src/"
         }
     }
 }
