@@ -1,4 +1,4 @@
-Rest API for Magento 2
+Rest client for Magento 2
 ======================
 Base Rest API v1
 

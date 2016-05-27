@@ -26,13 +26,16 @@ class Factory
                 'base_uri' => $this->config['baseUri'],
                 'headers' => [
                     'Content-Type' => $this->config['contentType'],
-                ]
+                ],
+                'usertype' => $this->config['usertype'],
+                'username' => $this->config['username'],
+                'password' => $this->config['password'],
             ];
-
-            if (!is_null($this->config->token)) {
+            
+            if ($this->config['token']) {
                 $config['headers']['Authorization'] = sprintf(self::TOKEN_TEMPLATE, $this->config['token']);
             }
-
+            
             return new $className($config);
         }
 

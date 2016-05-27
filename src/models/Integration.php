@@ -2,6 +2,9 @@
 
 namespace springimport\magento2apiv1\models;
 
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Exception\RequestException;
+
 class Integration extends \springimport\magento2apiv1\base\Model
 {
 
@@ -12,15 +15,17 @@ class Integration extends \springimport\magento2apiv1\base\Model
         $config = $this->getConfig();
         
         try {
-            $this->post('/' . $this->getConfig('usertype') . '/token', [
+            $test = $this->post('/' . $this->getConfig('usertype') . '/token', [
                 'query' => [
                     'username' => $this->getConfig('username'),
                     'password' => $this->getConfig('password'),
                 ]
             ]);
+            
+            return $test->getBody();
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
-                return Psr7\str($e->getResponse());
+                //return Psr7\str($e->getResponse());
             }
         }
         
