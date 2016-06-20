@@ -6,7 +6,6 @@ use springimport\magento2apiv1\base\Exception;
 
 class Factory
 {
-
     const TOKEN_TEMPLATE = 'Bearer %s';
 
     public $modelsPath = 'springimport\magento2apiv1\models\\';
@@ -19,7 +18,11 @@ class Factory
 
     public function model($name)
     {
-        $className = $this->modelsPath . $name;
+        if (class_exists($name)) {
+            $className = $name;
+        } else {
+            $className = $this->modelsPath.$name;
+        }
 
         if (class_exists($className)) {
             $config = [
@@ -31,11 +34,12 @@ class Factory
                 'username' => $this->config['username'],
                 'password' => $this->config['password'],
             ];
-            
+
             if ($this->config['token']) {
-                $config['headers']['Authorization'] = sprintf(self::TOKEN_TEMPLATE, $this->config['token']);
+                $config['headers']['Authorization'] = sprintf(self::TOKEN_TEMPLATE,
+                    $this->config['token']);
             }
-            
+
             return new $className($config);
         }
 
@@ -46,5 +50,4 @@ class Factory
     {
         $this->config = $config;
     }
-
 }
