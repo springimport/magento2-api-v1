@@ -12,11 +12,12 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/oauth-subscriber": "0.3.*"
     },
     "autoload": {
         "psr-4": {
-            "springimport\\magento2apiv1\\": "src/"
+            "springimport\\magento2\\apiv1\\": "src/"
         }
     }
 }

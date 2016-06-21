@@ -1,53 +1,49 @@
 <?php
 
-namespace springimport\magento2apiv1;
+namespace springimport\magento2\apiv1;
 
-use springimport\magento2apiv1\base\Exception;
+use GuzzleHttp\Client,
+    GuzzleHttp\HandlerStack,
+    GuzzleHttp\Subscriber\Oauth\Oauth1;
 
-class Factory
+class ApiClientFactory
 {
-    const TOKEN_TEMPLATE = 'Bearer %s';
+    protected $configuration;
 
-    public $modelsPath = 'springimport\magento2apiv1\models\\';
-    protected $config;
-
-    public function __construct(array $config)
+    public function __construct(Configuration $configuration)
     {
-        $this->setConfig($config);
+        $this->configuration = $configuration;
     }
 
-    public function model($name)
+    public function getApiClient()
     {
-        if (class_exists($name)) {
-            $className = $name;
-        } else {
-            $className = $this->modelsPath.$name;
-        }
+        $stack = HandlerStack::create();
 
-        if (class_exists($className)) {
-            $config = [
-                'base_uri' => $this->config['baseUri'],
-                'headers' => [
-                    'Content-Type' => $this->config['contentType'],
-                ],
-                'usertype' => $this->config['usertype'],
-                'username' => $this->config['username'],
-                'password' => $this->config['password'],
-            ];
+        $middleware = new Oauth1([
+            'consumer_key' => $this->configuration->getConsumerKey(),
+            'consumer_secret' => $this->configuration->getConsumerSecret(),
+            'token' => $this->configuration->getToken(),
+            'token_secret' => $this->configuration->getTokenSecret()
+        ]);
+        $stack->push($middleware);
 
-            if ($this->config['token']) {
-                $config['headers']['Authorization'] = sprintf(self::TOKEN_TEMPLATE,
-                    $this->config['token']);
-            }
-
-            return new $className($config);
-        }
-
-        throw new Exception("Rest model \"$className\" not found.");
+        $client = new Client([
+            'base_uri' => $this->configuration->getBaseUri(),
+            'handler' => $stack,
+            'auth' => 'oauth',
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+        ]);
     }
 
-    public function setConfig($config)
+    /**
+     * Get the configuration
+     *
+     * @return Configuration
+     */
+    public function getConfiguration()
     {
-        $this->config = $config;
+        return $this->configuration;
     }
 }
