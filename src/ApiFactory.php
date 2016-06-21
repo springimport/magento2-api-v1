@@ -6,7 +6,7 @@ use GuzzleHttp\Client,
     GuzzleHttp\HandlerStack,
     GuzzleHttp\Subscriber\Oauth\Oauth1;
 
-class ApiClientFactory
+class ApiFactory
 {
     protected $configuration;
 
