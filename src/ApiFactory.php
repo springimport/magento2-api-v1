@@ -1,4 +1,8 @@
 <?php
+/**
+ * @link https://github.com/springimport/magento2-api-v1
+ * @license MIT
+ */
 
 namespace springimport\magento2\apiv1;
 
@@ -6,15 +10,31 @@ use GuzzleHttp\Client,
     GuzzleHttp\HandlerStack,
     GuzzleHttp\Subscriber\Oauth\Oauth1;
 
+/**
+ * Factory for api client
+ */
 class ApiFactory
 {
+    /**
+     * @var Configuration
+     */
     protected $configuration;
 
+    /**
+     * Constructor.
+     *
+     * @param Configuration $configuration
+     */
     public function __construct(Configuration $configuration)
     {
         $this->configuration = $configuration;
     }
 
+    /**
+     * Get new api client.
+     *
+     * @return Client
+     */
     public function getApiClient()
     {
         $stack = HandlerStack::create();
@@ -40,7 +60,7 @@ class ApiFactory
     }
 
     /**
-     * Get the configuration
+     * Get the configuration.
      *
      * @return Configuration
      */
