@@ -54,6 +54,7 @@ class ApiFactory
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
+            'http_errors' => $this->configuration->getHttpErrors(),
         ]);
 
         return $client;

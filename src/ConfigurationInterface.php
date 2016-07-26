@@ -81,4 +81,18 @@ interface ConfigurationInterface
      * @return string base uri
      */
     public function getBaseUri();
+
+    /**
+     * Assigns http errors.
+     *
+     * @param bool $httpErrors
+     */
+    public function setHttpErrors($httpErrors);
+
+    /**
+     * Returns http errors.
+     *
+     * @return bool http errors
+     */
+    public function getHttpErrors();
 }

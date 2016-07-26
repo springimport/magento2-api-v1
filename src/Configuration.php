@@ -39,6 +39,11 @@ class Configuration implements ConfigurationInterface
     protected $baseUri;
 
     /**
+     * @var http errors
+     */
+    protected $httpErrors;
+
+    /**
      * @inheritdoc
      */
     public function setConsumerKey($key)
@@ -116,5 +121,21 @@ class Configuration implements ConfigurationInterface
     public function getBaseUri()
     {
         return $this->baseUri;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setHttpErrors($httpErrors)
+    {
+        $this->httpErrors = $httpErrors;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getHttpErrors()
+    {
+        return $this->httpErrors;
     }
 }
