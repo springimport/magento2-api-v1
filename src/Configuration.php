@@ -7,9 +7,11 @@
 namespace springimport\magento2\apiv1;
 
 /**
- * Configuration for factory
+ * Configuration for factory.
+ *
+ * @implements ConfigurationInterface
  */
-class Configuration
+class Configuration implements ConfigurationInterface
 {
     /**
      * @var string consumer key
@@ -37,9 +39,7 @@ class Configuration
     protected $baseUri;
 
     /**
-     * Assigns consumer key.
-     *
-     * @param string $key
+     * @inheritdoc
      */
     public function setConsumerKey($key)
     {
@@ -47,9 +47,7 @@ class Configuration
     }
 
     /**
-     * Returns consumer key.
-     *
-     * @return string consumer key
+     * @inheritdoc
      */
     public function getConsumerKey()
     {
@@ -57,9 +55,7 @@ class Configuration
     }
 
     /**
-     * Assigns consumer secret.
-     *
-     * @param string $secret
+     * @inheritdoc
      */
     public function setConsumerSecret($secret)
     {
@@ -67,9 +63,7 @@ class Configuration
     }
 
     /**
-     * Returns consumer secret.
-     *
-     * @return string consumer secret
+     * @inheritdoc
      */
     public function getConsumerSecret()
     {
@@ -77,9 +71,7 @@ class Configuration
     }
 
     /**
-     * Assigns token.
-     *
-     * @param string $token
+     * @inheritdoc
      */
     public function setToken($token)
     {
@@ -87,9 +79,7 @@ class Configuration
     }
 
     /**
-     * Returns token.
-     *
-     * @return string token
+     * @inheritdoc
      */
     public function getToken()
     {
@@ -97,9 +87,7 @@ class Configuration
     }
 
     /**
-     * Assigns token secret.
-     *
-     * @param string $tokenSecret
+     * @inheritdoc
      */
     public function setTokenSecret($tokenSecret)
     {
@@ -107,9 +95,7 @@ class Configuration
     }
 
     /**
-     * Returns token secret.
-     *
-     * @return string token secret
+     * @inheritdoc
      */
     public function getTokenSecret()
     {
@@ -117,9 +103,7 @@ class Configuration
     }
 
     /**
-     * Assigns base uri.
-     *
-     * @param string $baseUri
+     * @inheritdoc
      */
     public function setBaseUri($baseUri)
     {
@@ -127,9 +111,7 @@ class Configuration
     }
 
     /**
-     * Returns base uri.
-     *
-     * @return string base uri
+     * @inheritdoc
      */
     public function getBaseUri()
     {

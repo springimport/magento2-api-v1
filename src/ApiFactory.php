@@ -16,16 +16,16 @@ use GuzzleHttp\Client,
 class ApiFactory
 {
     /**
-     * @var Configuration
+     * @var ConfigurationInterface
      */
     protected $configuration;
 
     /**
      * Constructor.
      *
-     * @param Configuration $configuration
+     * @param ConfigurationInterface $configuration
      */
-    public function __construct(Configuration $configuration)
+    public function __construct(ConfigurationInterface $configuration)
     {
         $this->configuration = $configuration;
     }
@@ -62,7 +62,7 @@ class ApiFactory
     /**
      * Get the configuration.
      *
-     * @return Configuration
+     * @return ConfigurationInterface
      */
     public function getConfiguration()
     {
