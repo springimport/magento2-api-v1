@@ -1,12 +1,10 @@
 Rest client for Magento 2
 ======================
-Base Rest API v1
+This is wrapper over [Guzzle](https://github.com/guzzle/guzzle) for [Magento 2 REST API](http://devdocs.magento.com/guides/v2.0/rest/bk-rest.html).
 
 Installation
 ------------
-
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
 ```
 php composer.phar require --prefer-dist springimport/magento2-api-v1 "*"
 ```
@@ -14,8 +12,6 @@ or
 ```
 "springimport/magento2-api-v1": "*"
 ```
-
-
 Usage
 -----
 
