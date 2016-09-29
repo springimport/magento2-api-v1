@@ -1,6 +1,7 @@
 Rest client for Magento 2
 ======================
 This is wrapper over [Guzzle](https://github.com/guzzle/guzzle) for [Magento 2 REST API](http://devdocs.magento.com/guides/v2.0/rest/bk-rest.html).
+Alternatively, you can use [Swagger Client](https://github.com/springimport/magento2-swagger-api).
 
 Installation
 ------------
