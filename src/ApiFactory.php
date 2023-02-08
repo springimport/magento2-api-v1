@@ -38,13 +38,19 @@ class ApiFactory
     public function getApiClient()
     {
         $stack = HandlerStack::create();
+        $oauth_params = [
+          'consumer_key' => $this->configuration->getConsumerKey(),
+          'consumer_secret' => $this->configuration->getConsumerSecret(),
+          'token' => $this->configuration->getToken(),
+          'token_secret' => $this->configuration->getTokenSecret(),
+        ];
+        // Check if signature method is set.
+        $signature_method = $this->configuration->getSignatureMethod();
+        if ($signature_method) {
+          $oauth_params['signature_method'] = $signature_method;
+        }
 
-        $middleware = new Oauth1([
-            'consumer_key' => $this->configuration->getConsumerKey(),
-            'consumer_secret' => $this->configuration->getConsumerSecret(),
-            'token' => $this->configuration->getToken(),
-            'token_secret' => $this->configuration->getTokenSecret()
-        ]);
+        $middleware = new Oauth1($oauth_params);
         $stack->push($middleware);
 
         $client = new Client([

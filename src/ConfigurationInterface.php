@@ -69,6 +69,20 @@ interface ConfigurationInterface
     public function getTokenSecret();
 
     /**
+     * Assign signature method.
+     *
+     * @param  string $signatureMethod
+     */
+    public function setSignatureMethod($signatureMethod);
+
+    /**
+     * Returns signature method.
+     *
+     * @return string signature method
+     */
+    public function getSignatureMethod();
+
+    /**
      * Assigns base uri.
      *
      * @param string $baseUri
