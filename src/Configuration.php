@@ -34,6 +34,11 @@ class Configuration implements ConfigurationInterface
     protected $tokenSecret;
 
     /**
+     * @var string signature method
+     */
+    protected $signatureMethod;
+
+  /**
      * @var string base uri
      */
     protected $baseUri;
@@ -108,6 +113,22 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function setSignatureMethod($signatureMethod)
+    {
+      return $this->signatureMethod = $signatureMethod;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSignatureMethod()
+    {
+        return $this->signatureMethod;
+    }
+
+  /**
      * @inheritdoc
      */
     public function setBaseUri($baseUri)
